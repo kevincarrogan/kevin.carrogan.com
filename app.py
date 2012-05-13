@@ -20,7 +20,8 @@ def index():
         {
             'lastfm': feed_entry('http://ws.audioscrobbler.com/1.0/user/kevbear/recenttracks.rss'),
             'pinboard': feed_entry('http://feeds.pinboard.in/rss/u:kevindmorgan'),
-            'instapaper': feed_entry('http://www.instapaper.com/rss/396420/Unm6Hs9KkPouglyWKioGgIHsQ')
+            'instapaper': feed_entry('http://www.instapaper.com/rss/396420/Unm6Hs9KkPouglyWKioGgIHsQ'),
+            'twitter': feed_entry('https://twitter.com/statuses/user_timeline/2289741.rss')
         }
     )
 

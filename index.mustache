@@ -3,7 +3,7 @@
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<head>
+<head lang="en">
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
@@ -18,31 +18,35 @@
 	<script src="static/js/libs/modernizr-2.5.3.min.js"></script>
 </head>
 <body>
-<div role="main">
+<div role="main" class="container-fluid">
 	<header>
 		<h1>kevindmorgan</h1>
-		<nav class="span2">
-			<ul class="nav nav-tabs nav-stacked">
-				<li><a href="#whoiam">Who I am</a></li>
-				<li><a href="#career">Career</a></li>
-				<li><a href="#education">Education</a></li>
-				<li><a href="#personal">Personal</a></li>
-			</ul>
-		</nav>
 	</header>
-	<div class="span10">
-		<section id="whoiam">
-			<h1>Who I am</h1>
-		</section>
-		<section id="career">
-			<h1>Career</h1>
-		</section>
-		<section id="education">
-			<h1>Education</h1>
-		</section>
-		<section id="personal">
-			<h1>Personal</h1>
-		</section>
+	<div class="row-fluid">
+		<div class="span3">
+			<div class="well sidebar-nav">
+				<ul class="nav nav-list">
+					<li><a href="#whoiam">Who I am</a></li>
+					<li><a href="#career">Career</a></li>
+					<li><a href="#education">Education</a></li>
+					<li><a href="#personal">Personal</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="span9">
+			<section id="whoiam">
+				<h1>Who I am</h1>
+			</section>
+			<section id="career">
+				<h1>Career</h1>
+			</section>
+			<section id="education">
+				<h1>Education</h1>
+			</section>
+			<section id="personal">
+				<h1>Personal</h1>
+			</section>
+		</div>
 	</div>
 </div>
 <footer>

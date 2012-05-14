@@ -29,11 +29,24 @@ def index():
         'link': lastfm_current_track['link'],
         'recent_tracks': json.dumps(lastfm_recent_tracks)
     }
+    pinboard_url = 'http://feeds.pinboard.in/rss/u:kevindmorgan'
+    pinboard_current_bookmark = feed_entry(pinboard_url)
+    pinboard_feed = feedparser.parse(pinboard_url)
+    pinboard_recent_bookmarks = []
+    for i in range(5):
+        pinboard_recent_bookmarks.append({
+            'title': pinboard_feed.entries[i].title
+        })
+    pinboard = {
+        'title': pinboard_current_bookmark['title'],
+        'link': pinboard_current_bookmark['link'],
+        'recent_bookmarks': json.dumps(pinboard_recent_bookmarks)
+    }
     return pystache.render(
         template,
         {
             'lastfm': lastfm,
-            'pinboard': feed_entry('http://feeds.pinboard.in/rss/u:kevindmorgan'),
+            'pinboard': pinboard,
             'instapaper': feed_entry('http://www.instapaper.com/rss/396420/Unm6Hs9KkPouglyWKioGgIHsQ'),
             'twitter': feed_entry('https://twitter.com/statuses/user_timeline/2289741.rss'),
             'github': feed_entry('https://github.com/kevindmorgan.atom'),

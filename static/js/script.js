@@ -79,4 +79,30 @@ $(function () {
         }
     }());
 
+    (function () {
+        if (!Modernizr.touch) {
+            var template_text = '' +
+                '<table class="table table-bordered table-striped">' +
+                    '<tbody>' +
+                        '{{#recent_bookmarks}}' +
+                        '<tr>' +
+                            '<td>{{title}}</td>' +
+                        '</tr>' +
+                        '{{/recent_bookmarks}}' +
+                    '</tbody>' +
+                '</table>'
+              , template = Hogan.compile(template_text);
+            _.each($('a.recent-bookmarks'), function (anchor) {
+                var $anchor = $(anchor);
+                $anchor.popover(
+                {
+                    'placement': 'bottom',
+                    'title': 'pinboard',
+                    'content': template.render({recent_bookmarks: $anchor.data('recent-bookmarks')})
+                }
+                );
+            });
+        }
+    }());
+
 });

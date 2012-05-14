@@ -45,7 +45,7 @@
 					I currently work with <a href="http://www.python.org/">Python</a>, <a href="https://www.djangoproject.com/">Django</a> and <a href="http://documentcloud.github.com/backbone/">Backbone.js</a> but previously spent seven years writing <a href="http://www.php.net/">PHP</a>, <a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a> and have used various other web application technologies.
 				</p>
 				<p>
-					I like listening to <span class="lastfm"><a href="http://last.fm/users/kevbear/">music</a> (but to be honest, who doesn't?). <a href="http://open.spotify.com/user/kevindmorgan">Spotify</a> is a much better invention than sliced bread ever was. <span class="recently-played">I last listened to: {{#lastfm}}<a href="{{link}}">{{title}}</a>{{/lastfm}}.</span></span>
+					I like listening to <a href="http://last.fm/users/kevbear/">music</a> (but to be honest, who doesn't?). <a href="http://open.spotify.com/user/kevindmorgan">Spotify</a> is a much better invention than sliced bread ever was. I last listened to: {{#lastfm}}<a href="{{link}}" class="info recently-played" data-recent-tracks="{{recent_tracks}}">{{title}}</a>{{/lastfm}}.
 				</p>
 				<p>
 					I often get told I have "interesting" taste in films as I've never seen a <a href="http://www.imdb.com/title/tt0095016/">Die Hard</a> film and hate <a href="http://www.imdb.com/title/tt0133093/">The Matrix</a> (but please don't hold that against me). But I  do count <a href="http://www.imdb.com/title/tt0338013/">Eternal Sunshine of the Spotless Mind</a>, <a href="http://www.imdb.com/title/tt0211915/">Amelie</a> and <a href="http://www.imdb.com/title/tt0910970/">WALL-E</a> as some of my favourite films. Also, so far this year Joss Whedon can do <a href="http://www.imdb.com/title/tt1259521/">no</a> <a href="http://www.imdb.com/title/tt0848228/">wrong</a>.
@@ -83,7 +83,7 @@
 <script>window.jQuery || document.write('<script src="static/js/libs/jquery-1.7.2.min.js"><\/script>')</script>
 <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyARQFfvSLMHnnvvUtYYzVEYnmMtYqRuRvU&sensor=false"></script>
 <script src="static/js/libs/bootstrap.min.js"></script>
-
+<script src="static/js/libs/hogan-2.0.0.min.js"></script>
 <script src="static/js/plugins.js"></script>
 <script src="static/js/script.js"></script>
 </body>

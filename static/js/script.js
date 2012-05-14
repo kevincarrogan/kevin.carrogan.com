@@ -1,4 +1,4 @@
-/*global _, google*/
+/*global _, google, Hogan*/
 $(function () {
     (function () {
         var locations = []
@@ -47,6 +47,32 @@ $(function () {
                     'placement': 'bottom',
                     'title': location,
                     'content': '<img height="250px" width="250px" src="http://maps.googleapis.com/maps/api/staticmap?center=' + location + '&zoom=10&size=250x250&maptype=roadmap&sensor=false&markers=color:red%7C' + location + '" />'
+                }
+                );
+            });
+        }
+    }());
+
+    (function () {
+        if (!Modernizr.touch) {
+            var template_text = '' +
+                '<table class="table table-bordered table-striped">' +
+                    '<tbody>' +
+                        '{{#recent_tracks}}' +
+                        '<tr>' +
+                            '<td>{{title}}</td>' +
+                        '</tr>' +
+                        '{{/recent_tracks}}' +
+                    '</tbody>' +
+                '</table>'
+              , template = Hogan.compile(template_text);
+            _.each($('a.recently-played'), function (anchor) {
+                var $anchor = $(anchor);
+                $anchor.popover(
+                {
+                    'placement': 'bottom',
+                    'title': 'Last.FM',
+                    'content': template.render({recent_tracks: $anchor.data('recent-tracks')})
                 }
                 );
             });

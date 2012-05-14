@@ -97,8 +97,34 @@ $(function () {
                 $anchor.popover(
                 {
                     'placement': 'bottom',
-                    'title': 'pinboard',
+                    'title': 'Pinboard',
                     'content': template.render({recent_bookmarks: $anchor.data('recent-bookmarks')})
+                }
+                );
+            });
+        }
+    }());
+
+    (function () {
+        if (!Modernizr.touch) {
+            var template_text = '' +
+                '<table class="table table-bordered table-striped">' +
+                    '<tbody>' +
+                        '{{#recent_tweets}}' +
+                        '<tr>' +
+                            '<td>{{title}}</td>' +
+                        '</tr>' +
+                        '{{/recent_tweets}}' +
+                    '</tbody>' +
+                '</table>'
+              , template = Hogan.compile(template_text);
+            _.each($('a.recent-tweets'), function (anchor) {
+                var $anchor = $(anchor);
+                $anchor.popover(
+                {
+                    'placement': 'bottom',
+                    'title': 'Twitter',
+                    'content': template.render({recent_tweets: $anchor.data('recent-tweets')})
                 }
                 );
             });

@@ -42,13 +42,26 @@ def index():
         'link': pinboard_current_bookmark['link'],
         'recent_bookmarks': json.dumps(pinboard_recent_bookmarks)
     }
+    twitter_url = 'https://twitter.com/statuses/user_timeline/2289741.rss'
+    twitter_current_tweet = feed_entry(twitter_url)
+    twitter_feed = feedparser.parse(twitter_url)
+    twitter_recent_tweets = []
+    for i in range(5):
+        twitter_recent_tweets.append({
+            'title': twitter_feed.entries[i].title
+        })
+    twitter = {
+        'title': twitter_current_tweet['title'],
+        'link': twitter_current_tweet['link'],
+        'recent_tweets': json.dumps(twitter_recent_tweets)
+    }
     return pystache.render(
         template,
         {
             'lastfm': lastfm,
             'pinboard': pinboard,
             'instapaper': feed_entry('http://www.instapaper.com/rss/396420/Unm6Hs9KkPouglyWKioGgIHsQ'),
-            'twitter': feed_entry('https://twitter.com/statuses/user_timeline/2289741.rss'),
+            'twitter': twitter,
             'github': feed_entry('https://github.com/kevindmorgan.atom'),
         }
     )

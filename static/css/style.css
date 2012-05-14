@@ -1,6 +1,3 @@
-#main-content {
-	padding-top: 50px;
-}
 #personal p {
 	width:66%;
 	float: left;
@@ -16,7 +13,12 @@
 	#main-content {
 		padding-top: 0px;
 	}
-	.sidebar-nav {
+	.no-touch .sidebar-nav, .sidebar-nav {
 		position: relative;
+	}
+}
+@media (min-width: 980px) {
+	#main-content {
+		padding-top: 50px;
 	}
 }

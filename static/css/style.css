@@ -9,6 +9,9 @@
 .no-touch .sidebar-nav {
 	position: fixed;
 }
+.no-touch .info {
+	border-bottom: 1px dotted;
+}
 @media (max-width: 768px) {
 	#main-content {
 		padding-top: 0px;

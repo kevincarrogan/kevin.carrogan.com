@@ -6,3 +6,11 @@
 	height: 250px;
 	width: 250px;
 }
+.sidebar-nav {
+	position: fixed;
+}
+@media (max-width: 767px) {
+	.sidebar-nav {
+		position: relative;
+	}
+}

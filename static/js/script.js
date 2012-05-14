@@ -71,7 +71,7 @@ $(function () {
                 $anchor.popover(
                 {
                     'placement': 'bottom',
-                    'title': 'Last.FM',
+                    'title': 'Last.fm',
                     'content': template.render({recent_tracks: $anchor.data('recent-tracks')})
                 }
                 );

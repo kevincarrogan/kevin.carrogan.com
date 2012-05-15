@@ -32,4 +32,11 @@
 	#main-content {
 		padding-top: 50px;
 	}
+	.anchor {
+	    border-top:50px solid transparent;
+	    margin-top:-50px;
+	    -webkit-background-clip:padding-box;
+	    -moz-background-clip:padding;
+	    background-clip:padding-box;
+	}
 }

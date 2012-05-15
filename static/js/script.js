@@ -57,7 +57,6 @@ $(function () {
                           , placement = Math.abs(horiz) > Math.abs(vert) ?  horizPlacement : vertPlacement;
                         return placement;
                     },
-                    title: location,
                     content: '<img height="250px" width="250px" src="http://maps.googleapis.com/maps/api/staticmap?center=' + location + '&zoom=10&size=250x250&maptype=roadmap&sensor=false&markers=color:red%7C' + location + '" />'
                 }
                 );
@@ -93,7 +92,6 @@ $(function () {
                           , placement = Math.abs(horiz) > Math.abs(vert) ?  horizPlacement : vertPlacement;
                         return placement;
                     },
-                    title: 'Last.fm',
                     content: template.render({recent_tracks: $anchor.data('recent-tracks')})
                 }
                 );
@@ -129,7 +127,6 @@ $(function () {
                           , placement = Math.abs(horiz) > Math.abs(vert) ?  horizPlacement : vertPlacement;
                         return placement;
                     },
-                    title: 'Pinboard',
                     content: template.render({recent_bookmarks: $anchor.data('recent-bookmarks')})
                 }
                 );
@@ -165,7 +162,6 @@ $(function () {
                           , placement = Math.abs(horiz) > Math.abs(vert) ?  horizPlacement : vertPlacement;
                         return placement;
                     },
-                    title: 'Twitter',
                     content: template.render({recent_tweets: $anchor.data('recent-tweets')})
                 }
                 );

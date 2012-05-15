@@ -13,9 +13,6 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    def feed_entry(url):
-        feed = feedparser.parse(url)
-        return feed.entries[0]
     loader = Loader()
     template = loader.load_name('index')
     feeds = [

@@ -69,15 +69,15 @@ $(function () {
             var template_text = '' +
                 '<table class="table table-bordered table-striped">' +
                     '<tbody>' +
-                        '{{#recent_tracks}}' +
+                        '{{#items}}' +
                         '<tr>' +
-                            '<td>{{title}}</td>' +
+                            '<td>{{.}}</td>' +
                         '</tr>' +
-                        '{{/recent_tracks}}' +
+                        '{{/items}}' +
                     '</tbody>' +
                 '</table>'
               , template = Hogan.compile(template_text);
-            _.each($('a.recently-played'), function (anchor) {
+            _.each($('a.feed'), function (anchor) {
                 var $anchor = $(anchor);
                 $anchor.popover(
                 {
@@ -92,77 +92,7 @@ $(function () {
                           , placement = Math.abs(horiz) > Math.abs(vert) ?  horizPlacement : vertPlacement;
                         return placement;
                     },
-                    content: template.render({recent_tracks: $anchor.data('recent-tracks')})
-                }
-                );
-            });
-        }
-    }());
-
-    (function () {
-        if (!Modernizr.touch) {
-            var template_text = '' +
-                '<table class="table table-bordered table-striped">' +
-                    '<tbody>' +
-                        '{{#recent_bookmarks}}' +
-                        '<tr>' +
-                            '<td>{{title}}</td>' +
-                        '</tr>' +
-                        '{{/recent_bookmarks}}' +
-                    '</tbody>' +
-                '</table>'
-              , template = Hogan.compile(template_text);
-            _.each($('a.recent-bookmarks'), function (anchor) {
-                var $anchor = $(anchor);
-                $anchor.popover(
-                {
-                    placement: function (tip, element) {
-                        var offset = $(element).offset()
-                          , height = $(document).outerHeight()
-                          , width = $(document).outerWidth()
-                          , vert = 0.5 * height - offset.top
-                          , vertPlacement = vert > 0 ? 'bottom' : 'top'
-                          , horiz = 0.5 * width - offset.left
-                          , horizPlacement = horiz > 0 ? 'right' : 'left'
-                          , placement = Math.abs(horiz) > Math.abs(vert) ?  horizPlacement : vertPlacement;
-                        return placement;
-                    },
-                    content: template.render({recent_bookmarks: $anchor.data('recent-bookmarks')})
-                }
-                );
-            });
-        }
-    }());
-
-    (function () {
-        if (!Modernizr.touch) {
-            var template_text = '' +
-                '<table class="table table-bordered table-striped">' +
-                    '<tbody>' +
-                        '{{#recent_tweets}}' +
-                        '<tr>' +
-                            '<td>{{title}}</td>' +
-                        '</tr>' +
-                        '{{/recent_tweets}}' +
-                    '</tbody>' +
-                '</table>'
-              , template = Hogan.compile(template_text);
-            _.each($('a.recent-tweets'), function (anchor) {
-                var $anchor = $(anchor);
-                $anchor.popover(
-                {
-                    placement: function (tip, element) {
-                        var offset = $(element).offset()
-                          , height = $(document).outerHeight()
-                          , width = $(document).outerWidth()
-                          , vert = 0.5 * height - offset.top
-                          , vertPlacement = vert > 0 ? 'bottom' : 'top'
-                          , horiz = 0.5 * width - offset.left
-                          , horizPlacement = horiz > 0 ? 'right' : 'left'
-                          , placement = Math.abs(horiz) > Math.abs(vert) ?  horizPlacement : vertPlacement;
-                        return placement;
-                    },
-                    content: template.render({recent_tweets: $anchor.data('recent-tweets')})
+                    content: template.render({items: $anchor.data('items')})
                 }
                 );
             });

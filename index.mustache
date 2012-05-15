@@ -45,23 +45,23 @@
 					I currently work with <a href="http://www.python.org/">Python</a>, <a href="https://www.djangoproject.com/">Django</a> and <a href="http://documentcloud.github.com/backbone/">Backbone.js</a> but previously spent seven years writing <a href="http://www.php.net/">PHP</a>, <a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a> and have used various other web application technologies.
 				</p>
 				<p>
-					I like listening to {{#lastfm}}<a href="http://last.fm/users/kevbear/" class="info recently-played" title="Last.fm" data-recent-tracks="{{recent_tracks}}">music</a> (but to be honest, who doesn't?). <a href="http://open.spotify.com/user/kevindmorgan">Spotify</a> is a much better invention than sliced bread ever was. I last listened to: <a href="{{link}}">{{title}}</a>{{/lastfm}}.
+					I like listening to {{#lastfm}}<a href="http://last.fm/users/kevbear/" class="info feed" title="Last.fm" data-items="{{items}}">music</a> (but to be honest, who doesn't?). <a href="http://open.spotify.com/user/kevindmorgan">Spotify</a> is a much better invention than sliced bread ever was. I last listened to: <a href="{{link}}">{{title}}</a>{{/lastfm}}.
 				</p>
 				<p>
 					I often get told I have "interesting" taste in films as I've never seen a <a href="http://www.imdb.com/title/tt0095016/">Die Hard</a> film and hate <a href="http://www.imdb.com/title/tt0133093/">The Matrix</a> (but please don't hold that against me). But I  do count <a href="http://www.imdb.com/title/tt0338013/">Eternal Sunshine of the Spotless Mind</a>, <a href="http://www.imdb.com/title/tt0211915/">Amelie</a> and <a href="http://www.imdb.com/title/tt0910970/">WALL-E</a> as some of my favourite films. Also, so far this year Joss Whedon can do <a href="http://www.imdb.com/title/tt1259521/">no</a> <a href="http://www.imdb.com/title/tt0848228/">wrong</a>.
 				</p>
 				<p>
 					I like to learn as much as possible about new technologies and attempt to stay current in terms of using Python and JavaScript.
-					I collate my findings in {{#pinboard}}<a href="http://pinboard.in/u:kevindmorgan" title="Pinboard" data-recent-bookmarks="{{recent_bookmarks}}" class="info recent-bookmarks">pinboard</a> (last saved: <a href="{{link}}">{{title}}</a>{{/pinboard}}) and Instapaper (last saved: {{#instapaper}}<a href="{{link}}">{{title}}</a>{{/instapaper}}).
+					I collate my findings in {{#pinboard}}<a href="http://pinboard.in/u:kevindmorgan" title="Pinboard" data-items="{{items}}" class="info feed">pinboard</a> (last saved: <a href="{{link}}">{{title}}</a>{{/pinboard}}) and {{#instapaper}}<a href="http://instapaper.com" title="Instapaper" data-items="{{items}}" class="info feed">Instapaper</a> (last saved: <a href="{{link}}">{{title}}</a>{{/instapaper}}).
 				</p>
 				<p>
 					I also like to read around the subjects that I work with and am currently reading <a href="http://prodjango.com/">Pro Django</a> and <a href="http://addyosmani.github.com/backbone-fundamentals/">Developing Backbone.js Applications</a> but I don't go very far without a copy of <a href="http://www.amazon.co.uk/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742/ref=sr_1_1?ie=UTF8&qid=1337005816&sr=8-1">JavaScript: The Good Parts</a>, <a href="http://www.amazon.co.uk/Design-patterns-elements-reusable-object-oriented/dp/0201633612/ref=sr_1_1?s=books&ie=UTF8&qid=1337005832&sr=1-1">GoF: Design Patterns</a> and <a href="http://www.amazon.co.uk/Programming-Perl-Unmatched-processing-scripting/dp/0596004923/ref=sr_1_2?s=books&ie=UTF8&qid=1337005864&sr=1-2">Programming Perl</a> (you never know when you might need Perl).
 				</p>
 				<p>
-					I like to {{#twitter}}<a href="http://twitter.com/kevindmorgan" title="Twitter" data-recent-tweets="{{recent_tweets}}" class="info recent-tweets">tweet</a> and try my best to be interesting (but reckon I often fail). I last tweeted: <a href="{{link}}">{{title}}</a>{{/twitter}}.
+					I like to {{#twitter}}<a href="http://twitter.com/kevindmorgan" title="Twitter" data-items="{{items}}" class="info feed">tweet</a> and try my best to be interesting (but reckon I often fail). I last tweeted: <a href="{{link}}">{{title}}</a>{{/twitter}}.
 				</p>
 				<p>
-					I use <a href="http://github.com/kevindmorgan">Github</a> for my own projects and have contributed to a few friends and some open source projects. I last did: {{#github}}<a href="{{link}}">{{title}}</a>{{/github}}
+					I use {{#github}}<a href="http://github.com/kevindmorgan" title="Github" data-items="{{items}}" class="info feed">Github</a> for my own projects and have contributed to a few friends and some open source projects. I last did: <a href="{{link}}">{{title}}</a>{{/github}}
 				</p>
 			</section>
 			<section id="personal">

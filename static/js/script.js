@@ -46,9 +46,19 @@ $(function () {
                   , location = $anchor.data('static-map');
                 $anchor.popover(
                 {
-                    'placement': 'bottom',
-                    'title': location,
-                    'content': '<img height="250px" width="250px" src="http://maps.googleapis.com/maps/api/staticmap?center=' + location + '&zoom=10&size=250x250&maptype=roadmap&sensor=false&markers=color:red%7C' + location + '" />'
+                    placement: function (tip, element) {
+                        var offset = $(element).offset()
+                          , height = $(document).outerHeight()
+                          , width = $(document).outerWidth()
+                          , vert = 0.5 * height - offset.top
+                          , vertPlacement = vert > 0 ? 'bottom' : 'top'
+                          , horiz = 0.5 * width - offset.left
+                          , horizPlacement = horiz > 0 ? 'right' : 'left'
+                          , placement = Math.abs(horiz) > Math.abs(vert) ?  horizPlacement : vertPlacement;
+                        return placement;
+                    },
+                    title: location,
+                    content: '<img height="250px" width="250px" src="http://maps.googleapis.com/maps/api/staticmap?center=' + location + '&zoom=10&size=250x250&maptype=roadmap&sensor=false&markers=color:red%7C' + location + '" />'
                 }
                 );
             });
@@ -72,9 +82,19 @@ $(function () {
                 var $anchor = $(anchor);
                 $anchor.popover(
                 {
-                    'placement': 'bottom',
-                    'title': 'Last.fm',
-                    'content': template.render({recent_tracks: $anchor.data('recent-tracks')})
+                    placement: function (tip, element) {
+                        var offset = $(element).offset()
+                          , height = $(document).outerHeight()
+                          , width = $(document).outerWidth()
+                          , vert = 0.5 * height - offset.top
+                          , vertPlacement = vert > 0 ? 'bottom' : 'top'
+                          , horiz = 0.5 * width - offset.left
+                          , horizPlacement = horiz > 0 ? 'right' : 'left'
+                          , placement = Math.abs(horiz) > Math.abs(vert) ?  horizPlacement : vertPlacement;
+                        return placement;
+                    },
+                    title: 'Last.fm',
+                    content: template.render({recent_tracks: $anchor.data('recent-tracks')})
                 }
                 );
             });
@@ -98,9 +118,19 @@ $(function () {
                 var $anchor = $(anchor);
                 $anchor.popover(
                 {
-                    'placement': 'bottom',
-                    'title': 'Pinboard',
-                    'content': template.render({recent_bookmarks: $anchor.data('recent-bookmarks')})
+                    placement: function (tip, element) {
+                        var offset = $(element).offset()
+                          , height = $(document).outerHeight()
+                          , width = $(document).outerWidth()
+                          , vert = 0.5 * height - offset.top
+                          , vertPlacement = vert > 0 ? 'bottom' : 'top'
+                          , horiz = 0.5 * width - offset.left
+                          , horizPlacement = horiz > 0 ? 'right' : 'left'
+                          , placement = Math.abs(horiz) > Math.abs(vert) ?  horizPlacement : vertPlacement;
+                        return placement;
+                    },
+                    title: 'Pinboard',
+                    content: template.render({recent_bookmarks: $anchor.data('recent-bookmarks')})
                 }
                 );
             });
@@ -124,9 +154,19 @@ $(function () {
                 var $anchor = $(anchor);
                 $anchor.popover(
                 {
-                    'placement': 'bottom',
-                    'title': 'Twitter',
-                    'content': template.render({recent_tweets: $anchor.data('recent-tweets')})
+                    placement: function (tip, element) {
+                        var offset = $(element).offset()
+                          , height = $(document).outerHeight()
+                          , width = $(document).outerWidth()
+                          , vert = 0.5 * height - offset.top
+                          , vertPlacement = vert > 0 ? 'bottom' : 'top'
+                          , horiz = 0.5 * width - offset.left
+                          , horizPlacement = horiz > 0 ? 'right' : 'left'
+                          , placement = Math.abs(horiz) > Math.abs(vert) ?  horizPlacement : vertPlacement;
+                        return placement;
+                    },
+                    title: 'Twitter',
+                    content: template.render({recent_tweets: $anchor.data('recent-tweets')})
                 }
                 );
             });

@@ -3,8 +3,6 @@ import pystache
 import feedparser
 import json
 
-from itertools import islice
-
 from pystache.loader import Loader
 
 from flask import Flask
@@ -18,26 +16,54 @@ def index():
         return feed.entries[0]
     loader = Loader()
     template = loader.load_name('index')
-    feeds = [
-        ('lastfm', 'http://ws.audioscrobbler.com/1.0/user/kevbear/recenttracks.rss'),
-        ('pinboard', 'http://feeds.pinboard.in/rss/u:kevindmorgan'),
-        ('twitter', 'https://twitter.com/statuses/user_timeline/2289741.rss'),
-        ('instapaper', 'http://www.instapaper.com/rss/396420/Unm6Hs9KkPouglyWKioGgIHsQ'),
-        ('github', 'https://github.com/kevindmorgan.atom'),
-    ]
-    feed_results = {}
-    for name, url in feeds:
-        feed = feedparser.parse(url)
-        current = feed.entries[0]
-        feed_results[name] = {
-            'title': current.title,
-            'link': current.link,
-            'items': json.dumps([item.title for item in islice(feed.entries, 5)])
-        }
-
+    lastfm_url = 'http://ws.audioscrobbler.com/1.0/user/kevbear/recenttracks.rss'
+    lastfm_current_track = feed_entry(lastfm_url)
+    lastfm_feed = feedparser.parse(lastfm_url)
+    lastfm_recent_tracks = []
+    for i in range(5):
+        lastfm_recent_tracks.append({
+            'title': lastfm_feed.entries[i].title
+        })
+    lastfm = {
+        'title': lastfm_current_track['title'],
+        'link': lastfm_current_track['link'],
+        'recent_tracks': json.dumps(lastfm_recent_tracks)
+    }
+    pinboard_url = 'http://feeds.pinboard.in/rss/u:kevindmorgan'
+    pinboard_current_bookmark = feed_entry(pinboard_url)
+    pinboard_feed = feedparser.parse(pinboard_url)
+    pinboard_recent_bookmarks = []
+    for i in range(5):
+        pinboard_recent_bookmarks.append({
+            'title': pinboard_feed.entries[i].title
+        })
+    pinboard = {
+        'title': pinboard_current_bookmark['title'],
+        'link': pinboard_current_bookmark['link'],
+        'recent_bookmarks': json.dumps(pinboard_recent_bookmarks)
+    }
+    twitter_url = 'https://twitter.com/statuses/user_timeline/2289741.rss'
+    twitter_current_tweet = feed_entry(twitter_url)
+    twitter_feed = feedparser.parse(twitter_url)
+    twitter_recent_tweets = []
+    for i in range(5):
+        twitter_recent_tweets.append({
+            'title': twitter_feed.entries[i].title
+        })
+    twitter = {
+        'title': twitter_current_tweet['title'],
+        'link': twitter_current_tweet['link'],
+        'recent_tweets': json.dumps(twitter_recent_tweets)
+    }
     return pystache.render(
         template,
-        feed_results
+        {
+            'lastfm': lastfm,
+            'pinboard': pinboard,
+            'instapaper': feed_entry('http://www.instapaper.com/rss/396420/Unm6Hs9KkPouglyWKioGgIHsQ'),
+            'twitter': twitter,
+            'github': feed_entry('https://github.com/kevindmorgan.atom'),
+        }
     )
 
 if __name__ == '__main__':

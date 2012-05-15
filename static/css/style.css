@@ -8,12 +8,18 @@
 .no-touch .info {
 	border-bottom: 1px dotted;
 }
+.back-to-top {
+	display: none;
+}
 @media (max-width: 768px) {
 	#main-content {
 		padding-top: 0px;
 	}
 	.no-touch .sidebar-nav, .sidebar-nav {
 		position: relative;
+	}
+	.back-to-top {
+		display: inline;
 	}
 }
 @media (max-width: 925px) {

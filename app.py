@@ -3,8 +3,6 @@ import pystache
 import feedparser
 import json
 
-from itertools import islice
-
 from pystache.loader import Loader
 
 from flask import Flask
@@ -29,10 +27,13 @@ def index():
     for name, url in feeds:
         feed = feedparser.parse(url)
         current = feed.entries[0]
+        items = []
+        for i in range(5):
+            items.append(feed.entries[i].title)
         feed_results[name] = {
             'title': current.title,
             'link': current.link,
-            'items': json.dumps([item.title for item in islice(feed.entries, 5)])
+            'items': json.dumps(items)
         }
 
     return pystache.render(

@@ -1,6 +1,7 @@
-/*global _, google, Hogan*/
+/*global _, google, Hogan, Modernizr*/
 $(function () {
-    (function () {
+  'use strict';
+    (function ($) {
         if (!Modernizr.touch) {
             var locations = []
               , mapOptions
@@ -19,27 +20,35 @@ $(function () {
             map = new google.maps.Map($('#personal-map').get(0), mapOptions);
 
             _.each($('a[data-map]'), function (elem) {
-                var location = $(elem).data('map')
-                  , marker;
+                var location = $(elem).data('map'),
+                    result;
                 geocoder.geocode(
                     {
                         address: location
                     },
                     function (result) {
-                        marker = new google.maps.Marker({
+                        new google.maps.Marker({
                             map: map,
                             position: result[0].geometry.location
                         });
-                        map.setCenter(result[0].geometry.location);
                         bounds.extend(result[0].geometry.location);
+                        $(elem).hover(
+                          function (evt) {
+                            map.panTo(result[0].geometry.location);
+                          },
+                          function (evt) {
+                            map.panTo(bounds.getCenter());
+                          }
+                        );
+                        map.setCenter(bounds.getCenter());
+                        map.fitBounds(bounds);
                     }
                 );
             });
-            map.fitBounds(bounds);
         }
-    }());
+    }(window.jQuery));
 
-    (function () {
+    (function ($) {
         if (!Modernizr.touch) {
             _.each($('a[data-static-map]'), function (anchor) {
                 var $anchor = $(anchor)
@@ -62,9 +71,9 @@ $(function () {
                 );
             });
         }
-    }());
+    }(window.jQuery));
 
-    (function () {
+    (function ($) {
         if (!Modernizr.touch) {
             var template_text = '' +
                 '<table class="table table-bordered table-striped">' +
@@ -97,6 +106,6 @@ $(function () {
                 );
             });
         }
-    }());
+    }(window.jQuery));
 
 });

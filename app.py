@@ -13,15 +13,16 @@ app = Flask(__name__)
 def index():
     loader = Loader()
     template = loader.load_name('index')
-    feeds = [
-        ('lastfm', 'http://ws.audioscrobbler.com/1.0/user/kevbear/recenttracks.rss'),
-        ('pinboard', 'http://feeds.pinboard.in/rss/u:kevindmorgan'),
-        ('twitter', 'https://twitter.com/statuses/user_timeline/2289741.rss'),
-        ('instapaper', 'http://www.instapaper.com/rss/396420/Unm6Hs9KkPouglyWKioGgIHsQ'),
-        ('github', 'https://github.com/kevindmorgan.atom'),
-    ]
+    feeds = {
+        'lastfm': 'http://ws.audioscrobbler.com/1.0/user/kevbear/recenttracks.rss',
+        'pinboard': 'http://feeds.pinboard.in/rss/u:kevindmorgan',
+        'twitter': 'http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=kevindmorgan',
+        'instapaper': 'http://www.instapaper.com/rss/396420/Unm6Hs9KkPouglyWKioGgIHsQ',
+        'github': 'https://github.com/kevindmorgan.atom',
+    }
     feed_results = {}
-    for name, url in feeds:
+
+    for name, url in feeds.iteritems():
         feed = feedparser.parse(url)
         current = feed.entries[0]
         feed_results[name] = {
@@ -34,6 +35,7 @@ def index():
         template,
         feed_results
     )
+
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))

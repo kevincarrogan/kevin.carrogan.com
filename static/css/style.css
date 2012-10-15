@@ -1,0 +1,48 @@
+.no-touch #personal-map {
+	height: 250px;
+	width: 250px;
+}
+.no-touch .sidebar-nav {
+	position: fixed;
+}
+.no-touch .info {
+	border-bottom: 1px dotted;
+}
+.back-to-top {
+	display: none;
+}
+@media (max-width: 768px) {
+	#main-content {
+		padding-top: 0px;
+	}
+	.no-touch .sidebar-nav, .sidebar-nav {
+		position: relative;
+	}
+	.back-to-top {
+		display: inline;
+	}
+}
+@media (max-width: 925px) {
+	#personal-map {
+		width: 100%;
+		height: 150px;
+	}
+}
+@media (min-width: 926px) {
+	#personal p {
+		width:66%;
+		float: left;
+	}
+}
+@media (min-width: 980px) {
+	#main-content {
+		padding-top: 50px;
+	}
+	.anchor {
+	    border-top:50px solid transparent;
+	    margin-top:-50px;
+	    -webkit-background-clip:padding-box;
+	    -moz-background-clip:padding;
+	    background-clip:padding-box;
+	}
+}

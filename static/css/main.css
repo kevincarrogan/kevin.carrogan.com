@@ -97,9 +97,13 @@ body {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
+a {
+    color: #4ecdc4;
+}
+
 .masthead .main-heading {
     text-align: center;
-    background-color: #78BE9C;
+    background-color: #c7f464;
     width: 100%;
     padding: 0.5em 0;
     margin-top: 0.5em;
@@ -109,6 +113,10 @@ body {
     text-decoration: none;
     font-weight: normal;
     color: #fff;
+}
+
+.main-content {
+    padding: 0 0.5em;
 }
 
 /* ==========================================================================

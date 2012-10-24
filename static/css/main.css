@@ -93,6 +93,8 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+/* http://www.colourlovers.com/palette/1930/cheer_up_emo_kid */
+
 body {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
@@ -106,7 +108,8 @@ a {
     background-color: #c7f464;
     width: 100%;
     padding: 0.5em 0;
-    margin-top: 0.5em;
+    box-shadow: 0 1px 4px rgba(180, 180, 180, 0.7);
+    margin-top: 0;
 }
 
 .masthead .main-heading a {

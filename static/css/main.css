@@ -93,21 +93,23 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
 
+.masthead .main-heading {
+    text-align: center;
+    background-color: #78BE9C;
+    width: 100%;
+    padding: 0.5em 0;
+    margin-top: 0.5em;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.masthead .main-heading a {
+    text-decoration: none;
+    font-weight: normal;
+    color: #fff;
+}
 
 /* ==========================================================================
    Helper classes

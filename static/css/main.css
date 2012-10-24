@@ -123,13 +123,13 @@ a {
     position: fixed;
     bottom: 0;
     width: 100%;
-    box-shadow: 2px 0 10px rgba(180, 180, 180, 0.7);
+    box-shadow: 0 0 10px 5px rgba(50, 50, 50, 0.3);
 }
 
 .masthead nav ul {
     margin: 0;
     padding: 0;
-    background-color: #4ecdc4;
+    background-color: #c44d58;
 }
 
 .masthead li {
@@ -137,13 +137,7 @@ a {
     width: 50%;
     box-sizing: border-box;
     text-align: center;
-    border-right: 1px solid #556270;
-    padding: 0.5em 0;
     height: 100%; 
-}
-
-.masthead li:last-of-type {
-    border-right: none;
 }
 
 .masthead li a {
@@ -151,10 +145,12 @@ a {
     width: 100%;
     height: 100%;
     display: inline-block;
+    padding: 0.5em 0;
+    color: #fff;
 }
 
 .masthead .selected {
-    border-bottom: 0.25em solid #c44d58;
+    border-bottom: 0.25em solid #4ecdc4;
 }
 
 .main-content {

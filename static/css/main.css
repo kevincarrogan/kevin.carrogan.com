@@ -97,10 +97,11 @@ textarea {
 
 body {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    padding-bottom: 3em;
 }
 
 a {
-    color: #4ecdc4;
+    color: #556270;
 }
 
 .masthead .main-heading {
@@ -108,7 +109,7 @@ a {
     background-color: #c7f464;
     width: 100%;
     padding: 0.5em 0;
-    margin-top: 0;
+    margin: 0;
 }
 
 .masthead .main-heading a {
@@ -117,8 +118,51 @@ a {
     color: #fff;
 }
 
+.masthead nav {
+    padding: 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 2px 0 10px rgba(180, 180, 180, 0.7);
+}
+
+.masthead nav ul {
+    margin: 0;
+    padding: 0;
+    background-color: #4ecdc4;
+}
+
+.masthead li {
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    text-align: center;
+    border-right: 1px solid #556270;
+    padding: 0.5em 0;
+    height: 100%; 
+}
+
+.masthead li:last-of-type {
+    border-right: none;
+}
+
+.masthead li a {
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+
+.masthead .selected {
+    border-bottom: 0.25em solid #c44d58;
+}
+
 .main-content {
     padding: 0 0.5em;
+}
+
+.section-heading {
+    font-weight: normal;
 }
 
 /* ==========================================================================

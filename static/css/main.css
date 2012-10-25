@@ -288,6 +288,33 @@ a {
     }
 }
 
+@media only screen and (min-width: 50em) {
+
+    body {
+        background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==);
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: #ECFFF3;
+    }
+
+    .masthead, .main-content {
+        width: 35em;
+        margin: 0 auto;
+        opacity: 0.9;
+    }
+
+    .main-content {
+        padding: 0.67em 3em;
+        box-sizing: border-box;
+        background-color: #fff;
+    }
+
+    .section-heading {
+        margin-top: 0;
+    }
+}
+
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
        only screen and (min-resolution: 144dpi) {
     /* Style adjustments for high resolution devices */

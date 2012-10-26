@@ -292,22 +292,32 @@ a {
 
     body {
         background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==);
-        background-size: auto 100%;
+        background-size: 100% 100%;
         background-repeat: no-repeat;
         background-position: center;
         background-color: #ECFFF3;
+        transition: background-image 1s ease-in-out;
+        -moz-transition: background-image 1s ease-in-out;
+        -o-transition: background-image 1s ease-in-out;
+        -ms-transition: background-image 1s ease-in-out;
+        -webkit-transition: background-image 1s ease-in-out;
     }
 
     .masthead, .main-content {
         width: 35em;
         margin: 0 auto;
-        opacity: 0.9;
+        opacity: 0.8;
     }
 
     .main-content {
         padding: 0.67em 3em;
         box-sizing: border-box;
         background-color: #fff;
+    }
+
+    a[data-large-image] {
+        text-decoration: none;
+        border-bottom: 1px dotted;
     }
 
     .section-heading {

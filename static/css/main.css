@@ -290,17 +290,19 @@ a {
 
 @media only screen and (min-width: 50em) {
 
-    body {
-        background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==);
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        background-position: center;
+    html {
+        background: no-repeat center center fixed;
+        background-image: url(/static/background.gif);
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
         background-color: #ECFFF3;
-        transition: background-image 1s ease-in-out;
-        -moz-transition: background-image 1s ease-in-out;
-        -o-transition: background-image 1s ease-in-out;
-        -ms-transition: background-image 1s ease-in-out;
-        -webkit-transition: background-image 1s ease-in-out;
+        transition: background-image 0.5s ease-in-out;
+        -moz-transition: background-image 0.5s ease-in-out;
+        -o-transition: background-image 0.5s ease-in-out;
+        -ms-transition: background-image 0.5s ease-in-out;
+        -webkit-transition: background-image 0.5s ease-in-out;
     }
 
     .masthead, .main-content {

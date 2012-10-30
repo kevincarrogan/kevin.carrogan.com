@@ -1,4 +1,4 @@
-(function ($) {
+(function ($, mq) {
   var $html = $('html'),
       originalImage = $html.css('background-image');
   $('[data-large-image]').each(function (index, el) {
@@ -10,16 +10,20 @@
 
     $el.hover(
       function () {
-        $html.css('background-image', 'url(' + imageUrl + ')');
+        if (mq('only screen and (min-width: 50em)')) {
+          $html.css('background-image', 'url(' + imageUrl + ')');
+        }
       },
       function () {
-        $html.css('background-image', originalImage);
+        if (mq('only screen and (min-width: 50em)')) {
+          $html.css('background-image', originalImage);
+        }
       }
     );
   });
-})(window.jQuery);
+})(window.jQuery, window.Modernizr.mq);
 
-(function ($) {
+(function ($, mq) {
   var $mapContainer = $('.personal-map'),
       location = [],
       mapOptions,
@@ -72,10 +76,14 @@
 
   $('.personal-information').hover(
     function (evt) {
-      $mapContainer.css('opacity', 1);
+      if (mq('only screen and (min-width: 50em)')) {
+        $mapContainer.css('opacity', 1);
+      }
     },
     function (evt) {
-      $mapContainer.css('opacity', 0);
+      if (mq('only screen and (min-width: 50em)')) {
+        $mapContainer.css('opacity', 0);
+      }
     }
   );
-})(window.jQuery);
+})(window.jQuery, window.Modernizr.mq);

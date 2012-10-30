@@ -161,9 +161,24 @@ a {
     font-weight: normal;
 }
 
+.personal-map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -100;
+    transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -o-transition: opacity 0.5s ease-in-out;
+    -ms-transition: opacity 0.5s ease-in-out;
+    -webkit-transition: opacity 0.5s ease-in-out;
+}
+
 /* ==========================================================================
    Helper classes
-   ========================================================================== */
+   ========================================================================== 
 
 /*
  * Image replacement
@@ -317,7 +332,7 @@ a {
         background-color: #fff;
     }
 
-    a[data-large-image] {
+    a[data-large-image], a[data-map] {
         text-decoration: none;
         border-bottom: 1px dotted;
     }

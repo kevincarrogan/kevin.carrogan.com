@@ -25,6 +25,7 @@
 
 (function ($, mq) {
   var $mapContainer = $('.personal-map'),
+      $content = $('.main-content'),
       location = [],
       mapOptions,
       map,
@@ -63,9 +64,11 @@
         $(elem).hover(
           function (evt) {
             map.panTo(result[0].geometry.location);
+            $content.css('opacity', 0.5);
           },
           function (evt) {
             map.panTo(bounds.getCenter());
+            $content.css('opacity', 0.8);
           }
         );
         map.setCenter(bounds.getCenter());

@@ -33,7 +33,13 @@
   mapOptions = {
     center: bounds.getCenter(),
     zoom: 8,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    disableDefaultUI: true,
+    mapTypeControl: false,
+    panControl: false,
+    scaleControl: false,
+    zoomControl: false,
+    draggable: false
   };
   map = new google.maps.Map($mapContainer.get(0), mapOptions);
 

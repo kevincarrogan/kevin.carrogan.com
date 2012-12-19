@@ -64,11 +64,11 @@
         $(elem).hover(
           function (evt) {
             map.panTo(result[0].geometry.location);
-            $content.css('opacity', 0.5);
+            $content.css('background-color', 'rgba(255, 255, 255, 0.5)');
           },
           function (evt) {
             map.panTo(bounds.getCenter());
-            $content.css('opacity', 0.8);
+            $content.css('background-color', 'rgba(255, 255, 255, 0.8)');
           }
         );
         map.setCenter(bounds.getCenter());

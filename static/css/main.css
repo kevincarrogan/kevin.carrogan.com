@@ -323,7 +323,6 @@ a {
     .masthead, .main-content {
         width: 35em;
         margin: 0 auto;
-        background-color: rgba(255, 255, 255, 0.8);
         transition: background-color 0.2s ease-in-out;
         -moz-transition: background-color 0.2s ease-in-out;
         -o-transition: background-color 0.2s ease-in-out;
@@ -334,7 +333,7 @@ a {
     .main-content {
         padding: 0.67em 3em;
         box-sizing: border-box;
-        background-color: #fff;
+        background-color: rgba(255, 255, 255, 0.8);
     }
 
     a[data-large-image], a[data-map] {

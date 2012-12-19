@@ -2,6 +2,10 @@ import os
 import pystache
 import feedparser
 import json
+import gevent
+import gevent.monkey
+from gevent.pywsgi import WSGIServer
+gevent.monkey.patch_all()
 
 from pystache.loader import Loader
 
@@ -21,14 +25,15 @@ def index():
         'github': 'https://github.com/kevindmorgan.atom',
     }
     feed_results = {}
+    jobs = [gevent.spawn(feedparser.parse, url) for url in feeds.values()]
+    gevent.joinall(jobs)
 
-    for name, url in feeds.iteritems():
-        feed = feedparser.parse(url)
-        current = feed.entries[0]
+    for name, feed in zip(feeds.keys(), jobs):
+        current = feed.value.entries[0]
         feed_results[name] = {
             'title': current.title,
             'link': current.link,
-            'items': json.dumps([item.title for item in feed.entries[:5]])
+            'items': json.dumps([item.title for item in feed.value.entries[:5]])
         }
 
     return pystache.render(
@@ -49,4 +54,5 @@ def personal():
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    http_server = WSGIServer(('0.0.0.0', port), app)
+    http_server.serve_forever()

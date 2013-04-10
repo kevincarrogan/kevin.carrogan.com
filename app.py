@@ -4,6 +4,7 @@ import feedparser
 import json
 import gevent
 import gevent.monkey
+import requests
 from gevent.pywsgi import WSGIServer
 gevent.monkey.patch_all()
 
@@ -49,6 +50,25 @@ def personal():
     return pystache.render(
         template,
         {}
+    )
+
+
+@app.route('/status-board/lastfm/')
+def lastfm():
+    loader = Loader()
+    template = loader.load_name('lastfm')
+
+    content = requests.get('http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=kevbear&api_key=%s&format=json&limit=1' % os.environ.get('lastfm_key', '')).content
+    track_info = json.loads(content)['recenttracks']['track'][0]
+    lastfm_results = {
+        'artist': track_info['artist']['#text'],
+        'track': track_info['name'],
+        'image_url': track_info['image'][0]['#text'],
+    }
+
+    return pystache.render(
+        template,
+        lastfm_results,
     )
 
 

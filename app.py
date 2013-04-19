@@ -5,12 +5,14 @@ import json
 import gevent
 import gevent.monkey
 import requests
+import itertools
+import time
 from gevent.pywsgi import WSGIServer
 gevent.monkey.patch_all()
 
 from pystache.loader import Loader
 
-from flask import Flask
+from flask import Flask, Response, request
 app = Flask(__name__)
 
 
@@ -55,15 +57,37 @@ def personal():
 
 @app.route('/status-board/lastfm/')
 def lastfm():
+    if request.headers.get('accept') == 'text/event-stream':
+        def events():
+            for title in itertools.cycle(('Everlong', 'Stacked Actors', 'Best Of You')):
+            # while True:
+                # content = requests.get('http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=kevbear&api_key=%s&format=json&limit=1' % os.environ.get('lastfm_key', '')).content
+                # track_info = json.loads(content)['recenttracks']['track'][0]
+                # yield "data: %s" % track_info['artist']['#text']
+
+                track_info = {
+                    'artist': 'Foo Fighters',
+                    'title': title,
+                }
+                yield "event: lastfm\n"
+                yield "data: %s\n\n" % json.dumps(track_info)
+                time.sleep(5)
+        return Response(events(), content_type='text/event-stream')
+
     loader = Loader()
     template = loader.load_name('lastfm')
 
-    content = requests.get('http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=kevbear&api_key=%s&format=json&limit=1' % os.environ.get('lastfm_key', '')).content
-    track_info = json.loads(content)['recenttracks']['track'][0]
+    # content = requests.get('http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=kevbear&api_key=%s&format=json&limit=1' % os.environ.get('lastfm_key', '')).content
+    # track_info = json.loads(content)['recenttracks']['track'][0]
+    # lastfm_results = {
+    #     'artist': track_info['artist']['#text'],
+    #     'track': track_info['name'],
+    #     'image_url': track_info['image'][0]['#text'],
+    # }
     lastfm_results = {
-        'artist': track_info['artist']['#text'],
-        'track': track_info['name'],
-        'image_url': track_info['image'][0]['#text'],
+        'artist': 'Artist',
+        'track': 'Track #1',
+        'image_url': '/static/lols/mind-blown.gif',
     }
 
     return pystache.render(

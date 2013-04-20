@@ -28,3 +28,7 @@ html {
 .track-in {
     -webkit-transform: translateX(0);
 }
+
+.image {
+    height: 100%;
+}

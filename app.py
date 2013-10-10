@@ -23,7 +23,6 @@ def index():
     feeds = {
         'lastfm': 'http://ws.audioscrobbler.com/1.0/user/kevbear/recenttracks.rss',
         'pinboard': 'http://feeds.pinboard.in/rss/u:kevindmorgan',
-        'twitter': 'http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=kevindmorgan',
         'instapaper': 'http://www.instapaper.com/rss/396420/Unm6Hs9KkPouglyWKioGgIHsQ',
         'github': 'https://github.com/kevindmorgan.atom',
     }

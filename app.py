@@ -24,7 +24,7 @@ def index():
         'lastfm': 'http://ws.audioscrobbler.com/1.0/user/kevbear/recenttracks.rss',
         'pinboard': 'http://feeds.pinboard.in/rss/u:kevindmorgan',
         'instapaper': 'http://www.instapaper.com/rss/396420/Unm6Hs9KkPouglyWKioGgIHsQ',
-        'github': 'https://github.com/kevindmorgan.atom',
+        'github': 'https://github.com/kevincarrogan.atom',
     }
     feed_results = {}
     jobs = [gevent.spawn(feedparser.parse, url) for url in feeds.values()]

@@ -4,15 +4,12 @@ import feedparser
 import json
 import gevent
 import gevent.monkey
-import requests
-import itertools
-import time
 from gevent.pywsgi import WSGIServer
 gevent.monkey.patch_all()
 
 from pystache.loader import Loader
 
-from flask import Flask, Response, request
+from flask import Flask
 app = Flask(__name__)
 
 

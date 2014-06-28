@@ -96,8 +96,7 @@ textarea {
 body {
     background-color: #fefefe;
     color: #333;
-    margin: 0 auto;
-    width: 30rem;
+    padding: 0 1rem;
 }
 
 h1 {
@@ -105,6 +104,11 @@ h1 {
     font-size: 3rem;
     font-weight: 300;
     margin-left: 1rem;
+}
+
+header, main {
+    margin: 0 auto;
+    width: 30rem;
 }
 
 main {

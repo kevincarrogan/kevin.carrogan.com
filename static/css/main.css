@@ -93,7 +93,24 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+body {
+    background-color: #fefefe;
+    color: #333;
+    margin: 0 auto;
+    width: 35rem;
+}
 
+h1 {
+    font-family: 'avenir next', avenir, 'Open Sans', 'helvetica neue', arial, sans-serif;
+    font-size: 3rem;
+    font-weight: 300;
+    margin-left: 1rem;
+}
+
+main {
+    font-family: Merriweather, Georgia, Cambria, "Times new roman", serif;
+    line-height: 2rem;
+}
 
 /* ==========================================================================
    Helper classes

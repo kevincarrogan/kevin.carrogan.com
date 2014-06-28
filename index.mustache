@@ -15,52 +15,39 @@
         <script src="/static/js/vendor/modernizr-2.6.1.min.js"></script>
 </head>
 <body>
-<header class="masthead" id="top">
-    <h1 class="main-heading"><a href="/">Kevin Carrogan</a></h1>
-    <nav>
-        <ul class="clearfix">
-            <li>
-                <a href="/" class="selected">Who I Am</a>
-            </li>
-            <li>
-                <a href="/personal/">Personal</a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<section role="main" class="main-content">
-    <section id="whoiam">
-        <h1 class="section-heading">Who I Am</h1>
-        <p>
-            I am a geek and web developer living and working in <a href="http://en.wikipedia.org/wiki/London" title="London, UK" data-static-map="London, UK" class="info">London</a>.
-        </p>
-        <p>
-            I currently work with <a href="http://www.python.org/">Python</a>, <a href="https://www.djangoproject.com/">Django</a> and <a href="http://documentcloud.github.com/backbone/">Backbone.js</a> but previously spent seven years writing <a href="http://www.php.net/">PHP</a>, <a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a> and have used various other web application technologies.
-        </p>
-        <p>
-            I like listening to {{#lastfm}}<a href="http://last.fm/users/kevbear/" class="info feed" title="Last.fm" data-items="{{items}}">music</a> (but to be honest, who doesn't?). <a href="http://open.spotify.com/user/kevindmorgan">Spotify</a> is a much better invention than sliced bread ever was. I last listened to: <a href="{{link}}">{{title}}</a>{{/lastfm}}.
-        </p>
-        <p>
-            I often get told I have "interesting" taste in films as I've never seen a <a href="http://www.imdb.com/title/tt0095016/" data-large-image="http://cf2.imgobject.com/t/p/w1280/j31bCZR33MLwgH5IFMcGKjbr3z5.jpg">Die Hard</a> film and hate <a href="http://www.imdb.com/title/tt0133093/" data-large-image="http://cf2.imgobject.com/t/p/w1280/7u3pxc0K1wx32IleAkLv78MKgrw.jpg">The Matrix</a> (but please don't hold that against me). But I  do count <a href="http://www.imdb.com/title/tt0338013/" data-large-image="http://cf2.imgobject.com/t/p/w1280/e1uECwkwbD5Zpm9Gc6eb5mbG4C4.jpg">Eternal Sunshine of the Spotless Mind</a>, <a href="http://www.imdb.com/title/tt0211915/" data-large-image="http://cf2.imgobject.com/t/p/w1280/2Sr5jXIDdqibFAWWdh9wYipj5dq.jpg">Amelie</a> and <a href="http://www.imdb.com/title/tt0910970/" data-large-image="http://cf2.imgobject.com/t/p/w1280/2nFyTvssbtJMLC6eyYwwZ88gALD.jpg">WALL-E</a> as some of my favourite films. Also, so far this year Joss Whedon can do <a href="http://www.imdb.com/title/tt1259521/" data-large-image="http://cf2.imgobject.com/t/p/w1280/nG6njlALcdkDuOU7ROVYAW2cteP.jpg">no</a> <a href="http://www.imdb.com/title/tt0848228/" data-large-image="http://cf2.imgobject.com/t/p/w1280/n3w3rL2QKOiAmXxBfylniguoXrO.jpg">wrong</a>.
-        </p>
-        <p>
-            I like to learn as much as possible about new technologies and attempt to stay current in terms of using Python and JavaScript.
-            I collate my findings in {{#pinboard}}<a href="http://pinboard.in/u:kevindmorgan" title="Pinboard" data-items="{{items}}" class="info feed">pinboard</a> (last saved: <a href="{{link}}">{{title}}</a>{{/pinboard}}) and {{#instapaper}}<a href="http://instapaper.com" title="Instapaper" data-items="{{items}}" class="info feed">Instapaper</a> (last saved: <a href="{{link}}">{{title}}</a>{{/instapaper}}).
-        </p>
-        <p>
-            I also like to read around the subjects that I work with and am currently reading <a href="http://prodjango.com/">Pro Django</a> and <a href="http://addyosmani.github.com/backbone-fundamentals/">Developing Backbone.js Applications</a> but I don't go very far without a copy of <a href="http://www.amazon.co.uk/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742/ref=sr_1_1?ie=UTF8&qid=1337005816&sr=8-1">JavaScript: The Good Parts</a>, <a href="http://www.amazon.co.uk/Design-patterns-elements-reusable-object-oriented/dp/0201633612/ref=sr_1_1?s=books&ie=UTF8&qid=1337005832&sr=1-1">GoF: Design Patterns</a> and <a href="http://www.amazon.co.uk/Programming-Perl-Unmatched-processing-scripting/dp/0596004923/ref=sr_1_2?s=books&ie=UTF8&qid=1337005864&sr=1-2">Programming Perl</a> (you never know when you might need Perl).
-        </p>
-        <p>
-            I like to <a href="http://twitter.com/kevindmorgan">tweet</a> and try my best to be interesting (but reckon I often fail).
-        </p>
-        <p>
-            I use {{#github}}<a href="http://github.com/kevindmorgan" title="Github" data-items="{{items}}" class="info feed">Github</a> for my own projects and have contributed to a few friends and some open source projects. You can even see <a href="https://github.com/kevindmorgan/kevindmorgan.com">the code for this site</a> on Github. I last did: <a href="{{link}}">{{title}}</a>{{/github}}
-        </p>
-    </section>
-</section>
-<footer>
 
-</footer>
+    <header>
+        <h1>Kevin Carrogan</h1>
+    </header>
+
+    <main>
+
+        <p>I'm Kevin, I'm a web developer and I'm ok with that.</p>
+
+        <p>I currently code in Python and don't hate JavaScript like a lot of people do (in fact I kind of like it but don't tell anyone) but don't even get me started on CSS, seriously it's 2014 and we still can't vertically align easily.</p>
+
+        <p>I spend my 9-to-5 at <a href="http://p.ota.to">Potato</a> as a senior developer but even in my spare time I like making websites and sometimes the things I make are <a href="http://developerarguments.com">popular</a> but a lot of the time not even my friends will use something <a href="http://bogogger.com">I made</a> but it doesn't stop me from trying.</p>
+
+        <p>Like any good developer these days you can see how I make things on <a href="http://github.com/kevincarrogan">Github</a> including <a href="https://github.com/kevincarrogan/kevin.carrogan.com">this website</a>.</p>
+
+        <p>When I choose to procrastinate I spend my time on <a href="http://www.reddit.com/user/kevindmorgan/">Reddit</a> but I still don't get how an <a href="http://www.reddit.com/r/movies/comments/23zmwh/new_look_at_michael_fassbender_marion_cottilard/ch27yl7">inane comment</a> has gotten me the most comment karma.</p>
+
+        <p>I like to code with my headphones on (but that doesn't mean I'm not willing to talk) and you'll mostly find my listening to <a href="http://open.spotify.com/user/kevindmorgan/playlist/6eN41BCOFkEEEM8otWSsSh">Post Rock</a>. You might even catch me listening to {{#lastfm}}<a href="{{link}}">{{title}}</a>{{/lastfm}}.</p>
+
+        <p><iframe src="https://embed.spotify.com/?uri=spotify:user:kevindmorgan:playlist:6eN41BCOFkEEEM8otWSsSh" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></p>
+
+        <p>Well, that's about it. Have a good day. Oh and here's some links so you can find out way too much about me.</p>
+
+        <ul>
+            <li><a href="http://twitter.com/kevincarrogan">Twitter</a></li>
+            <li><a href="http://github.com/kevincarrogan">Github</a></li>
+            <li><a href="http://linkedin.com/in/kevincarrogan">LinkedIn</a></li>
+            <li><a href="http://www.reddit.com/user/kevindmorgan/">Reddit</a></li>
+            <li><a href="http://last.fm/user/kevbear">last.fm</a></li>
+        </ul>
+
+    </main>
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="/static/js/vendor/jquery-1.8.0.min.js"><\/script>')</script>
     <script src="/static/js/plugins.js"></script>

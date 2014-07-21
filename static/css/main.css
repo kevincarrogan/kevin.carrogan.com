@@ -108,6 +108,7 @@ h1 {
 header, main {
     margin: 0 auto;
     width: 30rem;
+    -webkit-font-smoothing: antialised;
 }
 
 main {

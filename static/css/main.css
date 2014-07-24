@@ -97,6 +97,7 @@ body {
     background-color: #fefefe;
     color: #333;
     padding: 0 1rem;
+    text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 }
 

@@ -97,18 +97,21 @@ body {
     background-color: #fefefe;
     color: #333;
     padding: 0 1rem;
+    -webkit-font-smoothing: antialiased;
 }
 
 h1 {
+    border-bottom: 1px solid #ccc;
     font-family: 'avenir next', avenir, 'Open Sans', 'helvetica neue', arial, sans-serif;
     font-size: 3rem;
     font-weight: 300;
+    padding-bottom: .67em;
+    text-align: center;
 }
 
 header, main {
     margin: 0 auto;
     width: 30rem;
-    -webkit-font-smoothing: antialiased;
 }
 
 main {

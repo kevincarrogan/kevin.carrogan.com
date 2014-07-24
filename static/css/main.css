@@ -101,15 +101,6 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-h1 {
-    border-bottom: 1px solid #ccc;
-    font-family: 'avenir next', avenir, 'Open Sans', 'helvetica neue', arial, sans-serif;
-    font-size: 3rem;
-    font-weight: 300;
-    padding-bottom: .67em;
-    text-align: center;
-}
-
 header, main {
     margin: 0 auto;
     width: 30rem;
@@ -118,6 +109,11 @@ header, main {
 main {
     font-family: Merriweather, Georgia, Cambria, "Times new roman", serif;
     line-height: 2rem;
+}
+
+main p:first-of-type {
+    font-size: 1.75rem;
+    line-height: 3rem;
 }
 
 .about-me-links {

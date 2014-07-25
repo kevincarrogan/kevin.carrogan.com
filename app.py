@@ -1,7 +1,6 @@
 import os
 import pystache
 import feedparser
-import json
 import gevent
 import gevent.monkey
 from gevent.pywsgi import WSGIServer
@@ -31,7 +30,6 @@ def index():
         feed_results[name] = {
             'title': current.title,
             'link': current.link,
-            'items': json.dumps([item.title for item in feed.value.entries[:5]])
         }
 
     return pystache.render(template, feed_results)

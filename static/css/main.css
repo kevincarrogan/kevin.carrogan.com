@@ -96,6 +96,7 @@ textarea {
 body {
     background-color: #fefefe;
     color: #333;
+    font-family: Merriweather, Georgia, Cambria, "Times new roman", serif;
     padding: 0 1rem;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -106,8 +107,23 @@ header, main {
     width: 90%;
 }
 
+header h1:before {
+    background-color: #000;
+    color: #fff;
+    content: "KC";
+    line-height: 70px;
+    padding: 10px;
+}
+
+header h1 {
+    font-size: 35px;
+    height: 70px;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 70px;
+}
+
 main {
-    font-family: Merriweather, Georgia, Cambria, "Times new roman", serif;
     line-height: 2rem;
 }
 

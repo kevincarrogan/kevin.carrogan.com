@@ -17,22 +17,21 @@ def index():
     loader = Loader()
     template = loader.load_name('index')
 
-    feeds = {
-        'lastfm': 'http://ws.audioscrobbler.com/1.0/user/kevbear/recenttracks.rss',
+    lastfm_feed_url = 'http://ws.audioscrobbler.com/1.0/user/kevbear/recenttracks.rss'
+    lastfm_feed_result = feedparser.parse(lastfm_feed_url)
+    lastfm_entry = lastfm_feed_result.entries[0]
+    band, track = lastfm_entry.title.split(u' \u2013 ')
+    link = lastfm_entry.link
+
+    ctx = {
+        'lastfm_result': {
+            'track': track,
+            'band': band,
+            'link': link,
+        }
     }
 
-    feed_results = {}
-    jobs = [gevent.spawn(feedparser.parse, url) for url in feeds.values()]
-    gevent.joinall(jobs)
-
-    for name, feed in zip(feeds.keys(), jobs):
-        current = feed.value.entries[0]
-        feed_results[name] = {
-            'title': current.title,
-            'link': current.link,
-        }
-
-    return pystache.render(template, feed_results)
+    return pystache.render(template, ctx)
 
 
 if __name__ == '__main__':

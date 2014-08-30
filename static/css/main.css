@@ -113,6 +113,7 @@ main {
 main p:first-of-type {
     font-size: 1.75rem;
     line-height: 3rem;
+    margin-top: 2.5rem;
 }
 
 .about-me-links {

@@ -1,33 +1,44 @@
 import os
 import pystache
-import feedparser
 import gevent
 import gevent.monkey
 from gevent.pywsgi import WSGIServer
 gevent.monkey.patch_all()
+
+from lastfmclient import LastfmClient
 
 from pystache.loader import Loader
 
 from flask import Flask
 app = Flask(__name__)
 
+lastfm_key = os.environ.get('lastfm_key')
+lastfm_secret = os.environ.get('lastfm_secret')
 
 @app.route('/')
 def index():
     loader = Loader()
     template = loader.load_name('index')
 
-    lastfm_feed_url = 'http://ws.audioscrobbler.com/1.0/user/kevbear/recenttracks.rss'
-    lastfm_feed_result = feedparser.parse(lastfm_feed_url)
-    lastfm_entry = lastfm_feed_result.entries[0]
-    band, track = lastfm_entry.title.split(u' \u2013 ')
-    link = lastfm_entry.link
+    lastfm_client = LastfmClient(lastfm_key, lastfm_secret)
+    recent_tracks = lastfm_client.user.get_recent_tracks('kevbear')['track']
+    recent_track = recent_tracks[0]
+    artist_name = recent_track['artist']['#text']
+    track_name = recent_track['name']
+    mbid = recent_track['mbid']
+    track_info = lastfm_client.track.get_info(
+        artist_name,
+        track_name,
+        mbid,
+    )
 
     ctx = {
         'lastfm_result': {
-            'track': track,
-            'band': band,
-            'link': link,
+            'track': track_info['name'],
+            'duration': track_info['duration'],
+            'album': track_info['album']['title'],
+            'artist': track_info['artist']['name'],
+            'url': track_info['url'],
         }
     }
 

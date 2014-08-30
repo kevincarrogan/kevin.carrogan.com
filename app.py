@@ -15,6 +15,15 @@ app = Flask(__name__)
 lastfm_key = os.environ.get('lastfm_key')
 lastfm_secret = os.environ.get('lastfm_secret')
 
+def milli_seconds_to_duration(milli_seconds):
+    total_seconds = milli_seconds / 1000
+
+    minutes = total_seconds / 60
+    seconds = total_seconds % 60
+
+    return 'PT{}M{}S'.format(minutes, seconds)
+
+
 @app.route('/')
 def index():
     loader = Loader()
@@ -35,7 +44,7 @@ def index():
     ctx = {
         'lastfm_result': {
             'track': track_info['name'],
-            'duration': track_info['duration'],
+            'duration': milli_seconds_to_duration(int(track_info['duration'])),
             'album': track_info['album']['title'],
             'artist': track_info['artist']['name'],
             'url': track_info['url'],

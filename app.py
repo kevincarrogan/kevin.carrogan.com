@@ -16,6 +16,8 @@ app = Flask(__name__)
 
 cache = SimpleCache()
 
+loader = Loader()
+
 lastfm_key = os.environ.get('lastfm_key')
 lastfm_secret = os.environ.get('lastfm_secret')
 
@@ -30,7 +32,6 @@ def milli_seconds_to_duration(milli_seconds):
 
 @app.route('/')
 def index():
-    loader = Loader()
     template = loader.load_name('index')
 
     lastfm_result = None

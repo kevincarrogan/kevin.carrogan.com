@@ -7,6 +7,8 @@ gevent.monkey.patch_all()
 
 from werkzeug.contrib.cache import SimpleCache
 
+from datetime import date
+
 from lastfmclient import LastfmClient
 
 from pystache.loader import Loader
@@ -63,6 +65,7 @@ def index():
 
     ctx = {
         'lastfm_result': lastfm_result,
+        'year': date.today().year,
     }
 
     return pystache.render(template, ctx)

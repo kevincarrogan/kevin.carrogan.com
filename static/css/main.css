@@ -122,6 +122,14 @@ main p:first-of-type {
     text-align: center;
 }
 
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== 

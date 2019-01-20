@@ -65,6 +65,10 @@ def index():
 
     ctx = {
         'lastfm_result': lastfm_result,
+        'letterboxd_result': {
+            'title': 'Blockers',
+            'review': 'pretty ok',
+        },
         'year': date.today().year,
     }
 

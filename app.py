@@ -16,6 +16,8 @@ from pystache.loader import Loader
 from flask import Flask
 app = Flask(__name__)
 
+from letterboxd import get_letterboxd_most_recently_watched_details
+
 cache = SimpleCache()
 
 loader = Loader()
@@ -65,10 +67,7 @@ def index():
 
     ctx = {
         'lastfm_result': lastfm_result,
-        'letterboxd_result': {
-            'title': 'Blockers',
-            'review': 'pretty ok',
-        },
+        'letterboxd_result': get_letterboxd_most_recently_watched_details(),
         'year': date.today().year,
     }
 

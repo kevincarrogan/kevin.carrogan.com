@@ -63,17 +63,19 @@ def get_film_details_from_response(response):
     latest_item = items[0]
     film_title = latest_item.find('{https://letterboxd.com}filmTitle').text
     film_rating = latest_item.find('{https://letterboxd.com}memberRating').text
+    film_url = latest_item.find('link').text
 
-    return film_title, film_rating
+    return film_title, film_rating, film_url
 
 
 def get_letterboxd_most_recently_watched_details():
     letterboxd_response = requests.get(LETTERBOXD_RSS_URL)
 
-    film_title, film_rating = get_film_details_from_response(letterboxd_response)
+    film_title, film_rating, film_url = get_film_details_from_response(letterboxd_response)
     film_review = get_review_from_rating(film_rating)
 
     return {
         'title': film_title,
         'review': film_review,
+        'url': film_url,
     }

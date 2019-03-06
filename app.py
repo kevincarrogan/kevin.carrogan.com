@@ -12,7 +12,9 @@ from datetime import date
 from pystache.loader import Loader
 
 from flask import Flask
+from flask_talisman import Talisman, GOOGLE_CSP_POLICY
 app = Flask(__name__)
+Talisman(app, content_security_policy=GOOGLE_CSP_POLICY)
 
 from lastfm import get_lastfm_most_recently_listened_details
 from letterboxd import get_letterboxd_most_recently_watched_details

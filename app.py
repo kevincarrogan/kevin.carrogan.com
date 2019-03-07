@@ -50,7 +50,6 @@ def index():
 
     ctx = {
         'letterboxd_result': letterboxd_result,
-        'year': date.today().year,
     }
 
     return pystache.render(template, ctx)

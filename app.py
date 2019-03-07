@@ -16,6 +16,7 @@ from flask_compress import Compress
 from flask_talisman import Talisman, GOOGLE_CSP_POLICY
 app = Flask(__name__)
 Compress(app)
+GOOGLE_CSP_POLICY['style-src'] += ' cdnjs.cloudflare.com'
 Talisman(app, content_security_policy=GOOGLE_CSP_POLICY)
 
 from letterboxd import get_letterboxd_most_recently_watched_details

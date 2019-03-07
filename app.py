@@ -25,6 +25,8 @@ cache = SimpleCache()
 
 loader = Loader()
 
+template = loader.load_name('index')
+
 
 def get_cached_result(func, key):
     cached_result = None
@@ -42,8 +44,6 @@ def get_cached_result(func, key):
 
 @app.route('/')
 def index():
-    template = loader.load_name('index')
-
     letterboxd_result = get_cached_result(
         get_letterboxd_most_recently_watched_details,
         'letterboxd_result',

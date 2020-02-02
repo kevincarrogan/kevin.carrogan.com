@@ -26,7 +26,7 @@ main p:first-of-type {
 .list-of-links {
     list-style: none;
     padding: 0;
-    text-align: center;
+    padding-left: 2rem;
 }
 
 a {

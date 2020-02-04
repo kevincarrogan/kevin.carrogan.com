@@ -17,7 +17,7 @@ async def index(request):
     letterboxd_result = await cache.get("letterboxd_result")
 
     if not letterboxd_result:
-        letterboxd_result = get_letterboxd_most_recently_watched_details()
+        letterboxd_result = await get_letterboxd_most_recently_watched_details()
         await cache.set("letterboxd_result", letterboxd_result, 60 * 60)
 
     ctx = {"letterboxd_result": letterboxd_result, "request": request}

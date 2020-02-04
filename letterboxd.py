@@ -1,3 +1,4 @@
+import httpx
 import random
 import requests
 
@@ -51,8 +52,9 @@ def get_film_details_from_response(response):
     return film_title, film_rating, film_url
 
 
-def get_letterboxd_most_recently_watched_details():
-    letterboxd_response = requests.get(LETTERBOXD_RSS_URL)
+async def get_letterboxd_most_recently_watched_details():
+    async with httpx.AsyncClient() as client:
+        letterboxd_response = await client.get(LETTERBOXD_RSS_URL)
 
     film_title, film_rating, film_url = get_film_details_from_response(
         letterboxd_response

@@ -22,11 +22,9 @@ async def cache_letterboxd_result():
 
 async def index(request):
     letterboxd_result = await cache.get("letterboxd_result")
-
     asyncio.create_task(cache_letterboxd_result())
 
     ctx = {"letterboxd_result": letterboxd_result, "request": request}
-
     return templates.TemplateResponse("index.html", ctx)
 
 

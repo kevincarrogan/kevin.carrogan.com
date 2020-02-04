@@ -3,7 +3,6 @@ import asyncio
 from aiocache import Cache
 
 from starlette.applications import Starlette
-from starlette.responses import Response
 from starlette.routing import Route, Mount
 from starlette.staticfiles import StaticFiles
 from starlette.templating import Jinja2Templates

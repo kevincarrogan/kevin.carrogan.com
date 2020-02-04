@@ -14,24 +14,17 @@ cache = Cache(Cache.MEMORY)
 
 
 async def index(request):
-    letterboxd_result = await cache.get('letterboxd_result')
+    letterboxd_result = await cache.get("letterboxd_result")
 
     if not letterboxd_result:
         letterboxd_result = get_letterboxd_most_recently_watched_details()
-        await cache.set('letterboxd_result', letterboxd_result, 60*60)
+        await cache.set("letterboxd_result", letterboxd_result, 60 * 60)
 
-    ctx = {
-        'letterboxd_result': letterboxd_result,
-        'request': request,
-    }
+    ctx = {"letterboxd_result": letterboxd_result, "request": request}
 
-    return templates.TemplateResponse(
-        "index.html", ctx,
-    )
+    return templates.TemplateResponse("index.html", ctx)
 
-routes = [
-    Route('/', index),
-    Mount("/static", StaticFiles(directory="static")),
-]
+
+routes = [Route("/", index), Mount("/static", StaticFiles(directory="static"))]
 
 app = Starlette(debug=True, routes=routes)

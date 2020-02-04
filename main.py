@@ -1,3 +1,5 @@
+import asyncio
+
 from aiocache import Cache
 
 from starlette.applications import Starlette
@@ -13,12 +15,16 @@ templates = Jinja2Templates(directory="templates")
 cache = Cache(Cache.MEMORY)
 
 
+async def cache_letterboxd_result():
+    letterboxd_result = await get_letterboxd_most_recently_watched_details()
+    await cache.set("letterboxd_result", letterboxd_result, 60 * 60)
+    return letterboxd_result
+
+
 async def index(request):
     letterboxd_result = await cache.get("letterboxd_result")
 
-    if not letterboxd_result:
-        letterboxd_result = await get_letterboxd_most_recently_watched_details()
-        await cache.set("letterboxd_result", letterboxd_result, 60 * 60)
+    asyncio.create_task(cache_letterboxd_result())
 
     ctx = {"letterboxd_result": letterboxd_result, "request": request}
 

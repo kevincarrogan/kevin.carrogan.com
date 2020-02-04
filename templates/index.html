@@ -54,9 +54,9 @@
 
         <p>I like to code with my headphones on (but that doesn't mean I'm not willing to talk) and you'll mostly find me listening to <a href="http://open.spotify.com/user/kevindmorgan/playlist/6eN41BCOFkEEEM8otWSsSh">Post Rock</a>.</p>
 
-        {{#letterboxd_result}}
-        <p>Once I'm at home I like to put my feet up and watch a good movie. I most recently thought that <span itemscope itemtype="http://schema.org/Movie"><a href="{{url}}" itemprop="url"><span itemprop="name">{{title}}</span></a></span> was {{review}}.</p>
-        {{/letterboxd_result}}
+        {% if letterboxd_result %}
+        <p>Once I'm at home I like to put my feet up and watch a good movie. I most recently thought that <span itemscope itemtype="http://schema.org/Movie"><a href="{{letterboxd_result.url}}" itemprop="url"><span itemprop="name">{{letterboxd_result.title}}</span></a></span> was {{letterboxd_result.review}}.</p>
+        {% endif %}
 
     </main>
 </body>

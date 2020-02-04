@@ -1,60 +1,37 @@
-import os
-import pystache
-import gevent
-import gevent.monkey
-from gevent.pywsgi import WSGIServer
-gevent.monkey.patch_all()
+from aiocache import Cache
 
-from werkzeug.contrib.cache import SimpleCache
-
-from datetime import date
-
-from pystache.loader import Loader
-
-from flask import Flask
-from flask_compress import Compress
-
-app = Flask(__name__)
-Compress(app)
+from starlette.applications import Starlette
+from starlette.responses import Response
+from starlette.routing import Route, Mount
+from starlette.staticfiles import StaticFiles
+from starlette.templating import Jinja2Templates
 
 from letterboxd import get_letterboxd_most_recently_watched_details
 
-cache = SimpleCache()
+templates = Jinja2Templates(directory="templates")
 
-loader = Loader()
-
-template = loader.load_name('index')
+cache = Cache(Cache.MEMORY)
 
 
-def get_cached_result(func, key):
-    cached_result = None
+async def index(request):
+    letterboxd_result = await cache.get('letterboxd_result')
 
-    try:
-        cached_result = cache.get(key)
-        if not cached_result:
-            cached_result = func()
-            cache.set(key, cached_result)
-    except:
-        pass
-
-    return cached_result
-
-
-@app.route('/')
-def index():
-    letterboxd_result = get_cached_result(
-        get_letterboxd_most_recently_watched_details,
-        'letterboxd_result',
-    )
+    if not letterboxd_result:
+        letterboxd_result = get_letterboxd_most_recently_watched_details()
+        await cache.set('letterboxd_result', letterboxd_result, 60*60)
 
     ctx = {
         'letterboxd_result': letterboxd_result,
+        'request': request,
     }
 
-    return pystache.render(template, ctx)
+    return templates.TemplateResponse(
+        "index.html", ctx,
+    )
 
+routes = [
+    Route('/', index),
+    Mount("/static", StaticFiles(directory="static")),
+]
 
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    http_server = WSGIServer(('0.0.0.0', port), app)
-    http_server.serve_forever()
+app = Starlette(debug=True, routes=routes)

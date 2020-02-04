@@ -1,6 +1,5 @@
 import httpx
 import random
-import requests
 
 from xml.etree import ElementTree
 

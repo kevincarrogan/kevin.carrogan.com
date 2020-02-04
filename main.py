@@ -33,4 +33,4 @@ async def index(request):
 
 routes = [Route("/", index), Mount("/static", StaticFiles(directory="static"))]
 
-app = Starlette(debug=True, routes=routes)
+app = Starlette(routes=routes)

@@ -9,27 +9,19 @@ LETTERBOXD_RSS_URL = "https://letterboxd.com/kevincarrogan/rss/"
 
 def get_review_from_rating(rating):
     ratings_to_review_map = {
-        "5.0": [
-            "pretty much perfect",
-            "one of the best films I've ever seen",
-            "I'm not quite sure why I'm not watching this right now",
-        ],
+        "5.0": ["pretty much perfect", "one of the best films I've ever seen"],
         "4.5": ["almost perfect", "a must watch"],
         "4.0": ["pretty great"],
         "3.5": ["better than most"],
         "3.0": ["slightly better than average"],
         "2.5": ["completely average", "mediocre"],
         "2.0": ["passable", "mediocre at best"],
-        "1.5": ["some very slight reedemable qualities"],
-        "1.0": [
-            "not worth watching again",
-            "I'd be pretty sad to have to watch this again",
-        ],
+        "1.5": ["slightly redeemable, but not much"],
+        "1.0": ["not worth watching again"],
         "0.5": [
             "absolutely dire",
-            "will never watch again",
             "one of the worst films I've ever seen",
-            "legitimately makes me angry",
+            "anger inducing",
         ],
     }
 

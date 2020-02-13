@@ -1,4 +1,5 @@
 import asyncio
+import math
 
 from aiocache import Cache
 
@@ -16,7 +17,7 @@ cache = Cache(Cache.MEMORY)
 
 async def cache_letterboxd_result():
     letterboxd_result = await get_letterboxd_most_recently_watched_details()
-    await cache.set("letterboxd_result", letterboxd_result, 60 * 60)
+    await cache.set("letterboxd_result", letterboxd_result, math.inf)
     return letterboxd_result
 
 
@@ -30,4 +31,9 @@ async def index(request):
 
 routes = [Route("/", index), Mount("/static", StaticFiles(directory="static"))]
 
-app = Starlette(routes=routes)
+
+async def fill_cache():
+    await cache_letterboxd_result()
+
+
+app = Starlette(routes=routes, on_startup=[fill_cache])

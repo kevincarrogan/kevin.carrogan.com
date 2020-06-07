@@ -9,4 +9,5 @@ SITES = (
         "When is Kevin leaving Potato?",
         "https://wheniskevinleavingpotatocom.kevincarrogan.now.sh",
     ),
+    ("Ria's Questions", "https://www.riasquestions.com"),
 )

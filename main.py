@@ -9,6 +9,7 @@ from starlette.staticfiles import StaticFiles
 from starlette.templating import Jinja2Templates
 
 from letterboxd import get_letterboxd_most_recently_watched_details
+from work import get_current_work_place
 
 templates = Jinja2Templates(directory="templates")
 
@@ -25,7 +26,13 @@ async def index(request):
     letterboxd_result = await cache.get("letterboxd_result")
     asyncio.create_task(cache_letterboxd_result())
 
-    ctx = {"letterboxd_result": letterboxd_result, "request": request}
+    work_result = get_current_work_place()
+
+    ctx = {
+        "letterboxd_result": letterboxd_result,
+        "work_result": work_result,
+        "request": request,
+    }
     return templates.TemplateResponse("index.html", ctx)
 
 

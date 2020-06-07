@@ -70,25 +70,26 @@
       </p>
 
       <p>
-        I spend my 9-to-5 at
+        {% if work_result %}I spend my 9-to-5 at
         <a
-          href="https://www.plentific.com"
+          href="{{work_result.url}}"
           itemscope
           itemprop="worksFor"
           itemtype="http://schema.org/Organization"
-          ><meta itemprop="url" content="https://www.plentific.com" /><span
+          ><meta itemprop="url" content="{{work_result.url}}" /><span
             itemprop="name"
-            >Plentific</span
+            >{{work_result.company}}</span
           ></a
         >
         as a
         <span
           jobTitle="jobTitle"
-          content="Senior Software Engineer at Plentific"
+          content="{{work_result.job_title}} at {{work_result.company}}"
           >software engineer</span
         >
-        but even in my spare time I like making websites and sometimes the
-        things I make are
+        {% else %}I spend my 9-to-5 at <em>undefined</em> as a software engineer
+        {% endif %} but even in my spare time I like making websites and
+        sometimes the things I make are
         <a href="http://developerarguments.com">popular</a> but a lot of the
         time they aren't, but that doesn't stop me from trying.
       </p>

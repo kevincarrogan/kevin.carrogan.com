@@ -97,20 +97,11 @@
       <p>Here are some of my attempts:</p>
 
       <ul class="list-of-links">
+        {% for name, url in sites %}
         <li>
-          <a href="https://www.developerarguments.com">Developer Arguments</a>
+          <a href="{{url}}">{{name}}</a>
         </li>
-        <li>
-          <a href="https://whatcolourhoodieiskevinwearingtoday.com/"
-            >What colour hoodie is Kevin wearing today?</a
-          >
-        </li>
-        <li><a href="https://www.manslator.app">Manslator</a></li>
-        <li>
-          <a href="https://wheniskevinleavingpotatocom.kevincarrogan.now.sh"
-            >When is Kevin leaving Potato?</a
-          >
-        </li>
+        {% endfor %}
       </ul>
 
       <p>

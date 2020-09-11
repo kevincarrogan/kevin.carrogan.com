@@ -38,7 +38,7 @@ async def index(request):
     return templates.TemplateResponse("index.html", ctx)
 
 
-routes = [Route("/", index), Mount("/static", StaticFiles(directory="static"))]
+routes = [Route("/", index), Mount("/static", StaticFiles(directory="/app/static"))]
 
 
 async def fill_cache():

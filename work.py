@@ -8,4 +8,8 @@ def get_current_work_place():
             "url": "https://www.example.com",
         }
     """
-    return None
+    return {
+        "job_title": "Software Engineer",
+        "name": "Department for International Trade",
+        "url": "https://www.gov.uk/government/organisations/department-for-international-trade",
+    }

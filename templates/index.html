@@ -85,7 +85,7 @@
         <span
           jobTitle="jobTitle"
           content="{{work_result.job_title}} at {{work_result.company}}"
-          >software engineer</span
+          >{{work_result.job_title|lower}}</span
         >
         {% else %}I spend my 9-to-5 at
         <em><a href="/static/documents/kevin-carrogan-cv.pdf">undefined</a></em>

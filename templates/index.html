@@ -1,144 +1,103 @@
-<!DOCTYPE html>
-<html
-  lang="en"
-  itemscope
-  itemtype="http://schema.org/Person"
-  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# profile: http://ogp.me/ns/profile#"
->
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Kevin Carrogan</title>
+{% extends "base.html" %}
 
-    <meta
-      itemprop="description"
-      content="I'm Kevin, I'm a web developer and I'm ok with that."
-    />
-    <meta itemprop="url" content="http://kevin.carrogan.com" />
+{% block body %}
+  <header class="visuallyhidden">
+    <h1 itemprop="name">Kevin Carrogan</h1>
+  </header>
 
-    <meta property="og:type" content="profile" />
-    <meta property="og:url" content="http://kevin.carrogan.com" />
-    <meta
-      property="og:image"
-      content="http://en.gravatar.com/userimage/10340958/802d3bdea53d368726f262791156cdd1.jpg?size=200"
-    />
-    <meta property="profile:first_name" content="Kevin" />
-    <meta property="profile:last_name" content="Carrogan" />
+  <main>
+    <p>I'm Kevin, I'm a web developer and I'm ok with that.</p>
 
-    <link rel="icon" href="/static/favicon.ico" />
+    <p>
+      My current language of choice is
+      <a
+        href="https://github.com/kevincarrogan/codebase-cli/blob/master/bin/cb"
+        >Python</a
+      >
+      and I don't hate
+      <a
+        href="https://github.com/kevincarrogan/720/blob/master/static/js/main.js"
+        >JavaScript</a
+      >
+      like a lot of people do (in fact I kind of like it but don't tell
+      anyone) and dabble a little in Swift.
+    </p>
 
-    <meta name="viewport" content="width=device-width" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
-    />
-    <link rel="stylesheet" href="/static/css/main.css" />
+    <p>
+      {% if work_result %}I spend my 9-to-5 at
+      <a
+        href="{{work_result.url}}"
+        itemscope
+        itemprop="worksFor"
+        itemtype="http://schema.org/Organization"
+        ><meta itemprop="url" content="{{work_result.url}}" /><span
+          itemprop="name"
+          >{{work_result.company}}</span
+        ></a
+      >
+      as a
+      <span
+        jobTitle="jobTitle"
+        content="{{work_result.job_title}} at {{work_result.company}}"
+        >{{work_result.job_title|lower}}</span
+      >
+      {% else %}I spend my 9-to-5 at
+      <em><a href="/static/documents/kevin-carrogan-cv.pdf">undefined</a></em>
+      as a software engineer {% endif %} but even in my spare time I like
+      making websites and sometimes the things I make are
+      <a href="http://developerarguments.com">popular</a> but a lot of the
+      time they aren't, but that doesn't stop me from trying.
+    </p>
 
-    <link
-      href="//fonts.googleapis.com/css?family=Merriweather"
-      rel="stylesheet"
-      type="text/css"
-    />
-  </head>
-  <body>
-    <header class="visuallyhidden">
-      <h1 itemprop="name">Kevin Carrogan</h1>
-    </header>
+    <p>Here are some of my attempts:</p>
 
-    <main>
-      <p>I'm Kevin, I'm a web developer and I'm ok with that.</p>
+    <ul class="list-of-links">
+      {% for name, url in sites %}
+      <li>
+        <a href="{{url}}">{{name}}</a>
+      </li>
+      {% endfor %}
+    </ul>
 
-      <p>
-        My current language of choice is
-        <a
-          href="https://github.com/kevincarrogan/codebase-cli/blob/master/bin/cb"
-          >Python</a
-        >
-        and I don't hate
-        <a
-          href="https://github.com/kevincarrogan/720/blob/master/static/js/main.js"
-          >JavaScript</a
-        >
-        like a lot of people do (in fact I kind of like it but don't tell
-        anyone) and dabble a little in Swift.
-      </p>
+    <p>
+      Like any good developer these days you can see how I make things on
+      <a href="http://github.com/kevincarrogan">GitHub</a> including
+      <a href="https://github.com/kevincarrogan/kevin.carrogan.com"
+        >this website</a
+      >.
+    </p>
 
-      <p>
-        {% if work_result %}I spend my 9-to-5 at
-        <a
-          href="{{work_result.url}}"
-          itemscope
-          itemprop="worksFor"
-          itemtype="http://schema.org/Organization"
-          ><meta itemprop="url" content="{{work_result.url}}" /><span
-            itemprop="name"
-            >{{work_result.company}}</span
-          ></a
-        >
-        as a
-        <span
-          jobTitle="jobTitle"
-          content="{{work_result.job_title}} at {{work_result.company}}"
-          >{{work_result.job_title|lower}}</span
-        >
-        {% else %}I spend my 9-to-5 at
-        <em><a href="/static/documents/kevin-carrogan-cv.pdf">undefined</a></em>
-        as a software engineer {% endif %} but even in my spare time I like
-        making websites and sometimes the things I make are
-        <a href="http://developerarguments.com">popular</a> but a lot of the
-        time they aren't, but that doesn't stop me from trying.
-      </p>
+    <p>
+      When I choose to procrastinate I spend my time on
+      <a href="http://www.reddit.com/user/kevindmorgan/">Reddit</a> but I
+      still don't get how an
+      <a
+        href="http://www.reddit.com/r/movies/comments/23zmwh/new_look_at_michael_fassbender_marion_cottilard/ch27yl7"
+        >inane comment</a
+      >
+      has gotten me the most comment karma.
+    </p>
 
-      <p>Here are some of my attempts:</p>
+    <p>
+      I like to code with my headphones on (but that doesn't mean I'm not
+      willing to talk) and you'll mostly find me listening to
+      <a
+        href="http://open.spotify.com/user/kevindmorgan/playlist/6eN41BCOFkEEEM8otWSsSh"
+        >Post Rock</a
+      >.
+    </p>
 
-      <ul class="list-of-links">
-        {% for name, url in sites %}
-        <li>
-          <a href="{{url}}">{{name}}</a>
-        </li>
-        {% endfor %}
-      </ul>
-
-      <p>
-        Like any good developer these days you can see how I make things on
-        <a href="http://github.com/kevincarrogan">GitHub</a> including
-        <a href="https://github.com/kevincarrogan/kevin.carrogan.com"
-          >this website</a
-        >.
-      </p>
-
-      <p>
-        When I choose to procrastinate I spend my time on
-        <a href="http://www.reddit.com/user/kevindmorgan/">Reddit</a> but I
-        still don't get how an
-        <a
-          href="http://www.reddit.com/r/movies/comments/23zmwh/new_look_at_michael_fassbender_marion_cottilard/ch27yl7"
-          >inane comment</a
-        >
-        has gotten me the most comment karma.
-      </p>
-
-      <p>
-        I like to code with my headphones on (but that doesn't mean I'm not
-        willing to talk) and you'll mostly find me listening to
-        <a
-          href="http://open.spotify.com/user/kevindmorgan/playlist/6eN41BCOFkEEEM8otWSsSh"
-          >Post Rock</a
-        >.
-      </p>
-
-      {% if letterboxd_result %}
-      <p>
-        Once I'm at home I like to put my feet up and watch a good movie. I most
-        recently thought that
-        <span itemscope itemtype="http://schema.org/Movie"
-          ><a href="{{letterboxd_result.url}}" itemprop="url"
-            ><span itemprop="name">{{letterboxd_result.title}}</span></a
-          ></span
-        >
-        was {{letterboxd_result.review}}.
-      </p>
-      {% endif %}
-    </main>
-  </body>
-</html>
+    {% if letterboxd_result %}
+    <p>
+      Once I'm at home I like to put my feet up and watch a good movie. I most
+      recently thought that
+      <span itemscope itemtype="http://schema.org/Movie"
+        ><a href="{{letterboxd_result.url}}" itemprop="url"
+          ><span itemprop="name">{{letterboxd_result.title}}</span></a
+        ></span
+      >
+      was {{letterboxd_result.review}}.
+    </p>
+    {% endif %}
+  </main>
+{% endblock %}

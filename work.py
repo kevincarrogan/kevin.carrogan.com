@@ -9,7 +9,7 @@ def get_current_work_place():
         }
     """
     return {
-        "job_title": "Software Engineer",
-        "company": "Department for International Trade",
-        "url": "https://www.gov.uk/government/organisations/department-for-international-trade",
+        "job_title": "Technical Lead",
+        "company": "Department for Business, Innovation, Science and Trade",
+        "url": "https://www.gov.uk/government/organisations/department-for-business-innovation-science-and-trade",
     }
